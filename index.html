@@ -1,0 +1,244 @@
+<!doctype html>
+    <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>hello phaser!</title>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js"></script>
+        <script src="cordova.js"></script>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+
+    window.onload = function() {
+
+        var game = new Phaser.Game(600, 800, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+        
+        var  realFacts= ["Women with full-time jobs still earn only about 77 percent of their male work comrades earnings.", "American women earn 64 cents and Latina women earn 56 cents for every dollar earned by a Caucasian man.", "Every year, an estimated 15 million girls under 18 are married worldwide.", "4 out of 5 victims of human trafficking are girls.", "On average, 30 percent of women who have been in a relationship report that they have experienced some form of physical or sexual violence by their partner.", "American women serving in Iraq or Afghanistan are more likely to be raped by a comrade then killed by an enemy.", "As of August 2, 2014, 74 colleges in the United States had pending Title IX (9) sexual violence investigations.", "Women around the world aged 15-44 are more at risk from rape and domestic violence than from cancer, car accidents, war and malaria.", "By 2018, there will be 1.4 million open technology jobs in the U.S. and, at the current rate of students graduating with degrees in computer science, only 29% of applicants will be women.", "One in five women on U.S. college campuses have experienced sexual assault.", "Women currently hold 24, or 4.8 percent of CEO positions at S&P 500 companies.", "Only 30 percent of the world's researchers are women. Google has a program to inspire the next generation of tech innovators.", "One in three women worldwide have experienced either intimate partner violence or non-partner sexual violence in their lifetime.", "Sexism is a phenomenon wherein one sex or gender has a feeling of superiority over the other, thus resulting in harm to the other sex by all means-mental, physical and emotional through conscious or unconscious efforts.", "Sexism starts during early childhood, and grows stronger in the pre-teen years.", "The term ‘Sexism’ was coined only in the 20th Century. Even the United States identified women as legal entities as late as 1875 and it is much later that the world identifying the true potential of women.", "The last thing dress codes are about is clothes.", "Men lose custody in 84% of divorces.", "80% of all suicide are men.", "77% of homicide victims are men.", "Women comprise 46% of the total U.S. labor force.", "Women make only 77.5 cents for every dollar that men earn.", "The more education a woman has, the greater the disparity in her wages.", "Women may work longer to receive the promotions that provide access to higher pay.", "Women account for 46% of the labor force, but 59% of workers making less than $8 an hour.", "Four in ten businesses worldwide have no women in senior management.", "Women earned less than men in 99% of all occupations.", "Minority women fare the worst when it comes to equal pay.", "19% of LGBT students were prevented from wearing clothes that were thought to be from another gender and that number was even higher for transgender students.", "Nearly 32% of students have been prevented from wearing clothes that that different from those designated for their legal sex.", "Dress codes trace back to the 1920s and ‘30s.", "26% of people employed in computer and mathematical occupations are women.", "70% of women with children under 18 participate in the labor force.", "Personal care products marketed to women cost an average of 13% mare than equivalent men's products.", "Sexism affects both men and women.", "More than half of men thing that sexism does not affect women anymore.", "Recent studies show that teachers call on boys in classrooms from three to eight times more frequently than they call on girls.", "The average woman in America earns seventy-nine cents for every dollar made by the average male.", "Women’s athletic budgets at schools and colleges average less than 20% of men’s.", "In the twenty-first century 99% of the people on welfare are women and dependent children.", "Of the brighter high school graduates who do not go on to college, 70% to 90% are girls.", "Cat calling is sexism.", "Gender-based achievement gaps (especially in math and science) suggest the existence of gender bias in the classroom.", "Being a feminist isn’t a bad thing.", "You can be both pretty and smart.", "Women can work and have children they don’t have to be house wives.", "Despite evidence of gender bias, female career access has made steady gains in recent years, due largely to the women's rights movement.", "The gendering of school subjects may, in itself, lead to gender bias in the classroom, and, further down the line, gender inequality in the workforce.", "At the entry level, 54% are men and 46% are women at the workplace.", "This boy code may make male students less likely to share opinions about literature or express frustrations or difficulties to teachers.", "Every year, an estimated 15 million men under 18 are married worldwide." ];
+        var fakeFacts=["Men don’t experience sexist comments","Women earn more than men","4 out of 5 victims of human trafficking are boy","Men experience some form of physical or sexual violence by their partner","As of August 2014, 76 colleges in the United States had pending 9 sexual violence investigations","men around the world aged 15-55 are more at risk from rape and domestic violence than from cancer, car accidents, war and malaria","By 2018, there will be 1.4 million open technology jobs in the U.S. and, at the current rate of students graduating with degrees in computer science, only 29% of applicants will be men","One in three men on U.S. college campuses have experienced sexual assault","men currently hold 24, or 4.8 percent of CEO positions at S&P 500 companies","Only 45 percent of the world's researchers are women. Google has a program to inspire the next generation of tech innovators","One in five men worldwide have experienced either intimate partner violence or non-partner sexual violence in their lifetime","Sexism starts during the age of 15, and grows stronger as you get older","Dress codes are not affecting sexism","dress codes affect all students equally","Women lose custody in 84% of divorces","80% of all suicide are women","77% of homicide victims are women","Men compromise 46% of U.S. labor force","Men only make 77.5 cents for every dollar woman get","Men only make 77.5 cents for every dollar woman get","Men may work longer to receive the promotions that provide access to higher pay","Men account for 46% of the labor force, but 59% of workers making less than $8 an hour","Four in ten businesses worldwide have no men in senior management","men earned less than women in 99% of all occupations","Minority men fare the worst when it comes to equal pay against women","March 8, International Men's Day, is a dedicated opportunity to call for their greater equality","Men with full-time jobs still earn only about 77 percent of their female counterparts’ earnings","Women and men students are allowed to dress any way they want","Students aren’t judged for dressing like the opposite sex","Dress codes have no history","In Saudi Arabia, men aren’t allowed to drive","10% of men with children under 18 participate in the labor force","Men’s personal products cost more for men than women","Sexism doesn’t affects both men and women","Less than half of men think that sexism does not affect women anymore","Recent studies show that teachers call on girls in classrooms from three to eight times more frequently than they call on boys","The average man in America earns seventy-nine cents for every dollar made by the average female","Men’s athletic budgets at schools and colleges average less than 20% of women’s","In the twenty-first century 99% of the people on welfare will be men and dependent children","Being a feminist is a bad thing","You can’t be both pretty and smart","Women can’t works and have children they have to chose one","Most of people hired in engineering and mathematics are women","Most of people hired in engineering and mathematics are women","Sexism only affects men","Women earn more than men in the work force","Recent studies show that teachers call on girls more than they call on boys","Men have been getting less money in the workforce than women","Men make up the least of skilled trades, fire and police, and senior managers"," Men suffer from poverty more than women","99% of the time the woman is the main character"];
+        
+        function preload () {
+            game.load.image('background', 'assets/images/OfficeCubicle.png');
+            game.load.image('pooBoss', 'assets/images/pooBoss.png');
+            game.load.image('timer', 'assets/images/timer.png');
+            game.load.image('paper', 'assets/images/paper.png');
+            game.load.image('princessPoop', 'assets/images/princessPoop.png');
+            game.load.image('faxMachine', 'assets/images/FaxMachine.png');
+            game.load.image('restartButton', 'assets/images/restartButton.png');
+        }
+        
+        
+        var pooBoss;
+        var faxMachine;
+        var princessPoop;
+        var papers = [];
+        var points = 0;
+        var factReward = 10;
+        var falseFactPenalty = 5;
+        var pointstext;
+        var timer;
+        
+        var emoji;
+        var fax;
+        var timerImage;
+        var paper1;
+        var paper2;
+        
+        var restartButton;
+        var timerText;
+        
+        function createTimer() {
+            timer = game.time.create();
+            timer.add(60000, showRestartScreen, game);
+            
+            timer.start();
+        }
+        
+        
+        function showRestartScreen() {
+            for(var i = 0; i < 2; i++)
+            {
+                papers[i].destroy(); 
+            }
+            
+            fake.destroy();
+            fact.destroy();
+            timerText.text = "0";
+            
+            restartButton = game.add.sprite(game.world.centerX, game.world.centerY, 'restartButton');
+            restartButton.anchor.setTo(0.5);
+            
+            restartButton.inputEnabled = true;
+            
+            restartButton.events.onInputDown.add(restartGame);
+        }
+        
+        function restartGame() {
+            createTimer();
+            
+            points = 0;
+            pointstext.text = getCurrentPointsString();
+            
+
+            
+            createFactSelector();
+            
+            restartButton.destroy();
+        }
+        
+        
+        function create () {
+            
+            game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
+
+            game.scale.setResizeCallback(gameResized, this);
+
+            background = game.add.sprite(0,0, 'background');    
+            emoji = game.add.sprite(180,490, 'princessPoop');
+            emoji.width = emoji.width * 1.25;
+            emoji.height = emoji.height *1.25;
+            fax = game.add.sprite(15, 247, 'faxMachine');
+            fax.width = fax.width * 0.4;
+            fax.height = fax.height * 0.4;
+            timerImage = game.add.sprite(450, 10, 'timer');
+            timerImage.width = timerImage.width * 1.5;
+            timerImage.height = timerImage.height * 1.75;
+            
+            createFactSelector();
+            pointstext = game.add.text(10, 20, getCurrentPointsString() );
+            
+            createTimer();
+            
+            timerText = game.add.text(timerImage.x + 13, timerImage.y + 20, 60 - timer.seconds);
+        }
+        
+        function gameResized(manager, bounds)
+        {
+            var scale = Math.min(window.innerWidth / this.game.width, window.innerHeight / this.game.height);
+
+            manager.setUserScale(scale, scale, 0, 0);
+        }
+        
+        function getCurrentPointsString() {
+            return 'points: ' + points;
+               
+        }
+        
+        function update () {
+            timerText.text = Math.max(60 - timer.seconds, 0);
+        }
+        
+        var fact;
+        var style = { font: '14pt Arial' , wordWrap: true, wordWrapWidth: 400};
+        
+        function makeFact(paperSpace) {
+            var random = Phaser.Math.between(0, realFacts.length - 1);
+            fact = game.add.text(paperSpace.x, paperSpace.y, realFacts [random], style); 
+            fact.anchor.setTo(0.5);
+            var factTween = game.add.tween(fact);
+            factTween.from({width : 0, height : 0});
+            factTween.start();
+            // return fact;
+        }
+        
+        var fake;
+        
+        function makeFake(paperSpace) {
+            var random = Phaser.Math.between(0, fakeFacts.length - 1);
+            fake = game.add.text(paperSpace.x, paperSpace.y, fakeFacts [random], style); 
+            fake.anchor.setTo(0.5);
+            var fakeTween = game.add.tween(fake);
+            fakeTween.from({width : 0, height : 0});
+            fakeTween.start();
+            // return fake;
+        }
+
+
+        function createFactSelector() {
+
+            var trueIndex = Math.round(Math.random());
+            
+            for(var i = 0; i < 2; i++) 
+            {
+                
+                papers[i] = game.add.sprite(game.world.centerX, 0, 'paper');
+                papers[i].width *= 2.5;
+                papers[i].height *= 1.25;
+                
+                papers[i].anchor.setTo(0.5);
+                // papers[i].x = papers[i].width; 
+                // papers[i].y = papers[i].height;
+                if(i == 0)
+                {
+                    //Top paper
+                    papers[i].y = game.world.centerY - papers[i].height / 2;
+                }
+                else
+                {
+                    //Bottom paper
+                    papers[i].y = game.world.centerY + papers[i].height / 2;
+                }
+                papers[i].inputEnabled = true;
+                if (i == trueIndex) 
+                {
+                    // DO STUFF FOR THE TRUE PAPER
+                    papers[i].events.onInputUp.add(handleTrueFact);
+                    
+                    //add text for the true thing
+                    makeFact(papers[i]);
+                } 
+                else 
+                {
+                   papers[i].events.onInputUp.add(handleFalseFact); 
+                   
+                   //add text for the false thing
+                   makeFake(papers[i]);
+                    
+                }
+                
+                var tween = game.add.tween(papers[i]);
+                tween.from({width : 0, height : 0});
+                tween.start();
+            }
+    }
+        
+    function handleTrueFact() {
+        points += factReward;
+        pointstext.text = getCurrentPointsString();
+        
+        for(var i = 0; i < 2; i++)
+        {
+            papers[i].destroy(); 
+        }
+        
+        fact.destroy();
+        fake.destroy();
+        
+        createFactSelector();
+
+    }
+        
+    function handleFalseFact() {
+        points -= falseFactPenalty;
+        pointstext.text = getCurrentPointsString();
+        
+        for(var i = 0; i < 2; i++)
+        {
+            papers[i].destroy();
+        }
+        
+        fact.destroy();
+        fake.destroy();
+        
+        createFactSelector();
+
+    }
+
+};      
+    
+
+
+    </script>
+
+    </body>
+</html>
